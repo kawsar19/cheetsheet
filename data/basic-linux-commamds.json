@@ -1,0 +1,503 @@
+[
+    {
+        "step": 1,
+        "title": "List Files in a Directory",
+        "code": "ls -l"
+    },
+    {
+        "step": 2,
+        "title": "Change Directory",
+        "code": "cd /path/to/directory"
+    },
+    {
+        "step": 3,
+        "title": "Print Current Working Directory",
+        "code": "pwd"
+    },
+    {
+        "step": 4,
+        "title": "Create a New Directory",
+        "code": "mkdir new_directory"
+    },
+    {
+        "step": 5,
+        "title": "Remove an Empty Directory",
+        "code": "rmdir empty_directory"
+    },
+    {
+        "step": 6,
+        "title": "Remove Files or Directories",
+        "code": "rm file.txt"
+    },
+    {
+        "step": 7,
+        "title": "Copy Files and Directories",
+        "code": "cp source.txt destination.txt"
+    },
+    {
+        "step": 8,
+        "title": "Move or Rename Files and Directories",
+        "code": "mv old_name.txt new_name.txt"
+    },
+    {
+        "step": 9,
+        "title": "Find Files in a Directory Hierarchy",
+        "code": "find /path -name \"*.txt\""
+    },
+    {
+        "step": 10,
+        "title": "Locate Files by Name",
+        "code": "locate filename"
+    },
+    {
+        "step": 11,
+        "title": "Concatenate and Display File Content",
+        "code": "cat file.txt"
+    },
+    {
+        "step": 12,
+        "title": "View File Content One Screen at a Time",
+        "code": "more file.txt"
+    },
+    {
+        "step": 13,
+        "title": "View File Content with Backward Navigation",
+        "code": "less file.txt"
+    },
+    {
+        "step": 14,
+        "title": "Display the First Lines of a File",
+        "code": "head -n 10 file.txt"
+    },
+    {
+        "step": 15,
+        "title": "Display the Last Lines of a File",
+        "code": "tail -n 10 file.txt"
+    },
+    {
+        "step": 16,
+        "title": "Simple Text Editor",
+        "code": "nano file.txt"
+    },
+    {
+        "step": 17,
+        "title": "Advanced Text Editor",
+        "code": "vim file.txt"
+    },
+    {
+        "step": 18,
+        "title": "Create an Empty File or Update Timestamp",
+        "code": "touch newfile.txt"
+    },
+    {
+        "step": 19,
+        "title": "Compare Files Line by Line",
+        "code": "diff file1.txt file2.txt"
+    },
+    {
+        "step": 20,
+        "title": "Search for Patterns in Files",
+        "code": "grep \"search_term\" file.txt"
+    },
+    {
+        "step": 21,
+        "title": "Display System Information",
+        "code": "uname -a"
+    },
+    {
+        "step": 22,
+        "title": "Display Running Processes in Real Time",
+        "code": "top"
+    },
+    {
+        "step": 23,
+        "title": "Interactive Process Viewer (requires installation)",
+        "code": "htop"
+    },
+    {
+        "step": 24,
+        "title": "Display Information About Running Processes",
+        "code": "ps aux"
+    },
+    {
+        "step": 25,
+        "title": "Display Disk Space Usage",
+        "code": "df -h"
+    },
+    {
+        "step": 26,
+        "title": "Estimate File and Directory Space Usage",
+        "code": "du -sh /path/to/directory"
+    },
+    {
+        "step": 27,
+        "title": "Display Memory Usage",
+        "code": "free -h"
+    },
+    {
+        "step": 28,
+        "title": "Show System Uptime",
+        "code": "uptime"
+    },
+    {
+        "step": 29,
+        "title": "Display Current Logged-in User",
+        "code": "whoami"
+    },
+    {
+        "step": 30,
+        "title": "Show or Set the System's Hostname",
+        "code": "hostname"
+    },
+    {
+        "step": 31,
+        "title": "Create a New User",
+        "code": "sudo adduser username"
+    },
+    {
+        "step": 32,
+        "title": "Remove a User",
+        "code": "sudo deluser username"
+    },
+    {
+        "step": 33,
+        "title": "Modify User Details",
+        "code": "sudo usermod -aG groupname username"
+    },
+    {
+        "step": 34,
+        "title": "Change a User’s Password",
+        "code": "passwd"
+    },
+    {
+        "step": 35,
+        "title": "Change File Owner and Group",
+        "code": "sudo chown user:group file.txt"
+    },
+    {
+        "step": 36,
+        "title": "Change File Permissions",
+        "code": "chmod 755 file.txt"
+    },
+    {
+        "step": 37,
+        "title": "Display Groups the User Belongs To",
+        "code": "groups"
+    },
+    {
+        "step": 38,
+        "title": "Display User ID and Group Information",
+        "code": "id"
+    },
+    {
+        "step": 39,
+        "title": "Switch User",
+        "code": "su username"
+    },
+    {
+        "step": 40,
+        "title": "Execute Command as Another User",
+        "code": "sudo command"
+    },
+    {
+        "step": 41,
+        "title": "Check Connectivity to a Host",
+        "code": "ping google.com"
+    },
+    {
+        "step": 42,
+        "title": "Display Network Interfaces",
+        "code": "ifconfig"
+    },
+    {
+        "step": 43,
+        "title": "Show/Manipulate Routing, Devices, Policy Routing, and Tunnels",
+        "code": "ip addr show"
+    },
+    {
+        "step": 44,
+        "title": "Display Network Connections and Listening Ports",
+        "code": "netstat -tuln"
+    },
+    {
+        "step": 45,
+        "title": "Trace the Path to a Network Host",
+        "code": "traceroute google.com"
+    },
+    {
+        "step": 46,
+        "title": "Transfer Data from or to a Server",
+        "code": "curl http://example.com"
+    },
+    {
+        "step": 47,
+        "title": "Download Files from the Web",
+        "code": "wget http://example.com/file.txt"
+    },
+    {
+        "step": 48,
+        "title": "Securely Connect to a Remote Host",
+        "code": "ssh user@hostname"
+    },
+    {
+        "step": 49,
+        "title": "Securely Copy Files Between Hosts",
+        "code": "scp file.txt user@hostname:/path/to/destination"
+    },
+    {
+        "step": 50,
+        "title": "Transfer Files Using FTP",
+        "code": "ftp"
+    },
+    {
+        "step": 51,
+        "title": "Terminate a Process",
+        "code": "kill PID"
+    },
+    {
+        "step": 52,
+        "title": "Terminate All Processes by Name",
+        "code": "killall process_name"
+    },
+    {
+        "step": 53,
+        "title": "Resume a Suspended Job in the Background",
+        "code": "bg"
+    },
+    {
+        "step": 54,
+        "title": "Bring a Background Job to the Foreground",
+        "code": "fg"
+    },
+    {
+        "step": 55,
+        "title": "List Active Jobs",
+        "code": "jobs"
+    },
+    {
+        "step": 56,
+        "title": "Run a Command Immune to Hangups",
+        "code": "nohup command &"
+    },
+    {
+        "step": 57,
+        "title": "Wait for a Process to Finish",
+        "code": "wait"
+    },
+    {
+        "step": 58,
+        "title": "Run a Command with Modified Scheduling Priority",
+        "code": "nice -n 10 command"
+    },
+    {
+        "step": 59,
+        "title": "Alter the Priority of Running Processes",
+        "code": "renice"
+    },
+    {
+        "step": 60,
+        "title": "Report Memory Map of a Process",
+        "code": "pmap PID"
+    },
+    {
+        "step": 61,
+        "title": "Archive Files",
+        "code": "tar -cvf archive.tar /path/to/files"
+    },
+    {
+        "step": 62,
+        "title": "Extract a Tar Archive",
+        "code": "tar -xvf archive.tar"
+    },
+    
+        {
+        "step": 63,
+        "title": "Compress Files Using Gzip",
+        "code": "gzip file.txt"
+    },
+    {
+        "step": 64,
+        "title": "Decompress Gzip Files",
+        "code": "gunzip file.txt.gz"
+    },
+    {
+        "step": 65,
+        "title": "Create a Zip Archive",
+        "code": "zip archive.zip file1.txt file2.txt"
+    },
+    {
+        "step": 66,
+        "title": "Extract a Zip Archive",
+        "code": "unzip archive.zip"
+    },
+    {
+        "step": 67,
+        "title": "Change the Ownership of a File or Directory",
+        "code": "chown user:group file.txt"
+    },
+    {
+        "step": 68,
+        "title": "Change the Permissions of a File or Directory",
+        "code": "chmod 755 file.txt"
+    },
+    {
+        "step": 69,
+        "title": "View the Manual for a Command",
+        "code": "man command"
+    },
+    {
+        "step": 70,
+        "title": "Search for a Command in the Manual",
+        "code": "man -k keyword"
+    },
+    {
+        "step": 71,
+        "title": "Show the Environment Variables",
+        "code": "printenv"
+    },
+    {
+        "step": 72,
+        "title": "Set an Environment Variable",
+        "code": "export VAR_NAME=value"
+    },
+    {
+        "step": 73,
+        "title": "Unset an Environment Variable",
+        "code": "unset VAR_NAME"
+    },
+    {
+        "step": 74,
+        "title": "Redirect Standard Output to a File",
+        "code": "command > output.txt"
+    },
+    {
+        "step": 75,
+        "title": "Append Standard Output to a File",
+        "code": "command >> output.txt"
+    },
+    {
+        "step": 76,
+        "title": "Redirect Standard Error to a File",
+        "code": "command 2> error.txt"
+    },
+    {
+        "step": 77,
+        "title": "Redirect Both Standard Output and Standard Error",
+        "code": "command &> all_output.txt"
+    },
+    {
+        "step": 78,
+        "title": "Chain Commands Using Semicolon",
+        "code": "command1; command2"
+    },
+    {
+        "step": 79,
+        "title": "Chain Commands Using Logical AND",
+        "code": "command1 && command2"
+    },
+    {
+        "step": 80,
+        "title": "Chain Commands Using Logical OR",
+        "code": "command1 || command2"
+    },
+    {
+        "step": 81,
+        "title": "Run Command in Background",
+        "code": "command &"
+    },
+    {
+        "step": 82,
+        "title": "Display the Last 10 Lines of System Log",
+        "code": "tail -n 10 /var/log/syslog"
+    },
+    {
+        "step": 83,
+        "title": "Display System Resource Usage",
+        "code": "vmstat"
+    },
+    {
+        "step": 84,
+        "title": "Check Disk I/O Performance",
+        "code": "iostat"
+    },
+    {
+        "step": 85,
+        "title": "Check Network Statistics",
+        "code": "netstat -s"
+    },
+    {
+        "step": 86,
+        "title": "Show Active Network Connections",
+        "code": "ss -tuln"
+    },
+    {
+        "step": 87,
+        "title": "Test Network Throughput",
+        "code": "iperf"
+    },
+    {
+        "step": 88,
+        "title": "Find Out Who is Logged In",
+        "code": "who"
+    },
+    {
+        "step": 89,
+        "title": "Show System Boot Time",
+        "code": "last -x | grep boot"
+    },
+    {
+        "step": 90,
+        "title": "List Available Packages (Debian-based)",
+        "code": "apt list --installed"
+    },
+    {
+        "step": 91,
+        "title": "Install a Package (Debian-based)",
+        "code": "sudo apt install package_name"
+    },
+    {
+        "step": 92,
+        "title": "Remove a Package (Debian-based)",
+        "code": "sudo apt remove package_name"
+    },
+    {
+        "step": 93,
+        "title": "Update Package List (Debian-based)",
+        "code": "sudo apt update"
+    },
+    {
+        "step": 94,
+        "title": "Upgrade Installed Packages (Debian-based)",
+        "code": "sudo apt upgrade"
+    },
+    {
+        "step": 95,
+        "title": "List Installed Packages (Red Hat-based)",
+        "code": "yum list installed"
+    },
+    {
+        "step": 96,
+        "title": "Install a Package (Red Hat-based)",
+        "code": "sudo yum install package_name"
+    },
+    {
+        "step": 97,
+        "title": "Remove a Package (Red Hat-based)",
+        "code": "sudo yum remove package_name"
+    },
+    {
+        "step": 98,
+        "title": "Update Package List (Red Hat-based)",
+        "code": "sudo yum update"
+    },
+    {
+        "step": 99,
+        "title": "Check Disk Usage by File System",
+        "code": "df -hT"
+    },
+    {
+        "step": 100,
+        "title": "Shutdown the System",
+        "code": "sudo shutdown now"
+    }
+]

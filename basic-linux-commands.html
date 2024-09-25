@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Api Cheatsheet</title>
+  <title>Basic  Linux Commands</title>
 
   <!-- Vue.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -14,29 +14,30 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Prism.js for colorful snippets -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 
   <link rel="stylesheet" href="/style/main.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 
 </head>
 
 
 <body>
   <div id="app" class="cheatsheet">
-    <h1>Api Cheatsheet </h1>
+    <h1>100 Basic Linux Commands  </h1>
 
     <div class="search-bar">
       <input type="text" placeholder="Search snippets..." v-model="searchQuery" />
     </div>
 
-    <div v-for="(item, index) in filteredSnippets" :key="index" class="snippet">
-      <h3>{{ index + 1 }}. {{ item.title }}</h3>
-      <pre><code class="language-bash">{{ item.code }}</code></pre>
-      <button class="copy-btn" @click="copyCode(index)">Copy</button>
-    </div>
+<div v-for="(item, index) in filteredSnippets" :key="index" class="snippet">
+  <h3>{{ index + 1 }}. {{ item.title }}</h3>
+  <pre><code class="language-bash" v-html="item.code"></code></pre>
+  <button class="copy-btn" @click="copyCode(index)">Copy</button>
+</div>
 
     <div class="footer">
       <a href="/">Home</a>
@@ -85,7 +86,7 @@
       mounted() {
 
         // Fetch the JSON file for snippets
-        fetch('/data/docker.json')
+        fetch('/data/basic-linux-commamds.json')
           .then(response => response.json())
           .then(data => {
             this.snippets = data;
