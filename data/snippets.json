@@ -34,5 +34,11 @@
       "title": "Docker ",
       "description": "A collection of 100 important Docker command .",
       "link": "/docker.html"
+    },
+    {
+      "id": 7,
+      "title": "Basic Linux Commands ",
+      "description": "A collection of 100 useful linux command .",
+      "link": "/docker.html"
     }
 ]
