@@ -4,19 +4,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer Chetsheet</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-  
-  <link rel="stylesheet" href="/style/main.css">
+  <title>Developer Cheatsheet</title>
+  <!-- Internal Styles -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
 
-  
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .snippet-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .snippet-item {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .snippet-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #007BFF;
+    }
+
+    p {
+      color: #666;
+    }
+
+    .view-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+    }
+
+    .view-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+  <!-- Vue.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
 </head>
 
 <body>
 
   <div id="app" class="container">
-    <h1>Developer cheetsheet</h1>
+    <h1>Developer Cheatsheet</h1>
     <div class="snippet-list">
       <div v-for="snippet in snippets" :key="snippet.id" class="snippet-item">
         <h2>{{ snippet.title }}</h2>
@@ -25,6 +86,7 @@
       </div>
     </div>
   </div>
+
   <script>
     new Vue({
       el: '#app',
@@ -42,6 +104,7 @@
       }
     });
   </script>
+
 </body>
 
 </html>
