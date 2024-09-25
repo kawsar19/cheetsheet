@@ -1,0 +1,509 @@
+ [
+    {
+      "step": 1,
+      "title": "Install Docker (Ubuntu)",
+      "code": "sudo apt-get install docker.io"
+    },
+    {
+      "step": 2,
+      "title": "Check Docker Version",
+      "code": "docker --version"
+    },
+    {
+      "step": 3,
+      "title": "Start Docker Service",
+      "code": "sudo systemctl start docker"
+    },
+    {
+      "step": 4,
+      "title": "Enable Docker on Boot",
+      "code": "sudo systemctl enable docker"
+    },
+    {
+      "step": 5,
+      "title": "Pull an Image from Docker Hub",
+      "code": "docker pull <image-name>"
+    },
+    {
+      "step": 6,
+      "title": "List Docker Images",
+      "code": "docker images"
+    },
+    {
+      "step": 7,
+      "title": "Search for an Image on Docker Hub",
+      "code": "docker search <image-name>"
+    },
+    {
+      "step": 8,
+      "title": "Run a Container from an Image",
+      "code": "docker run <image-name>"
+    },
+    {
+      "step": 9,
+      "title": "Run a Container in Detached Mode",
+      "code": "docker run -d <image-name>"
+    },
+    {
+      "step": 10,
+      "title": "Run a Container with Port Mapping",
+      "code": "docker run -p <host-port>:<container-port> <image-name>"
+    },
+    {
+      "step": 11,
+      "title": "Run a Container with a Name",
+      "code": "docker run --name <container-name> <image-name>"
+    },
+    {
+      "step": 12,
+      "title": "List Running Containers",
+      "code": "docker ps"
+    },
+    {
+      "step": 13,
+      "title": "List All Containers (including stopped ones)",
+      "code": "docker ps -a"
+    },
+    {
+      "step": 14,
+      "title": "Stop a Running Container",
+      "code": "docker stop <container-id>"
+    },
+    {
+      "step": 15,
+      "title": "Restart a Running Container",
+      "code": "docker restart <container-id>"
+    },
+    {
+      "step": 16,
+      "title": "Remove a Stopped Container",
+      "code": "docker rm <container-id>"
+    },
+    {
+      "step": 17,
+      "title": "Remove an Image",
+      "code": "docker rmi <image-id>"
+    },
+    {
+      "step": 18,
+      "title": "Show Container Logs",
+      "code": "docker logs <container-id>"
+    },
+    {
+      "step": 19,
+      "title": "Run a Command Inside a Running Container",
+      "code": "docker exec -it <container-id> <command>"
+    },
+    {
+      "step": 20,
+      "title": "Run a Bash Shell in a Running Container",
+      "code": "docker exec -it <container-id> /bin/bash"
+    },
+    {
+      "step": 21,
+      "title": "Run an Interactive Container",
+      "code": "docker run -it <image-name> /bin/bash"
+    },
+    {
+      "step": 22,
+      "title": "Copy Files from Container to Host",
+      "code": "docker cp <container-id>:/path/to/file /host/path"
+    },
+    {
+      "step": 23,
+      "title": "Copy Files from Host to Container",
+      "code": "docker cp /host/path <container-id>:/path/to/file"
+    },
+    {
+      "step": 24,
+      "title": "Rename a Docker Container",
+      "code": "docker rename <old-name> <new-name>"
+    },
+    {
+      "step": 25,
+      "title": "Pause a Running Container",
+      "code": "docker pause <container-id>"
+    },
+    {
+      "step": 26,
+      "title": "Unpause a Paused Container",
+      "code": "docker unpause <container-id>"
+    },
+    {
+      "step": 27,
+      "title": "Remove all Stopped Containers",
+      "code": "docker container prune"
+    },
+    {
+      "step": 28,
+      "title": "Remove all Unused Images",
+      "code": "docker image prune"
+    },
+    {
+      "step": 29,
+      "title": "Remove all Unused Data",
+      "code": "docker system prune"
+    },
+    {
+      "step": 30,
+      "title": "Build an Image from a Dockerfile",
+      "code": "docker build -t <image-name> ."
+    },
+    {
+      "step": 31,
+      "title": "Tag an Image",
+      "code": "docker tag <image-id> <repository>:<tag>"
+    },
+    {
+      "step": 32,
+      "title": "Push an Image to Docker Hub",
+      "code": "docker push <repository>:<tag>"
+    },
+    {
+      "step": 33,
+      "title": "Login to Docker Hub",
+      "code": "docker login"
+    },
+    {
+      "step": 34,
+      "title": "Logout from Docker Hub",
+      "code": "docker logout"
+    },
+    {
+      "step": 35,
+      "title": "Inspect a Docker Image",
+      "code": "docker inspect <image-name>"
+    },
+    {
+      "step": 36,
+      "title": "Inspect a Docker Container",
+      "code": "docker inspect <container-id>"
+    },
+    {
+      "step": 37,
+      "title": "Show Docker Disk Usage",
+      "code": "docker system df"
+    },
+    {
+      "step": 38,
+      "title": "Display Docker Event Logs",
+      "code": "docker events"
+    },
+    {
+      "step": 39,
+      "title": "View Network Information of a Container",
+      "code": "docker network inspect <container-id>"
+    },
+    {
+      "step": 40,
+      "title": "Create a Docker Network",
+      "code": "docker network create <network-name>"
+    },
+    {
+      "step": 41,
+      "title": "List Docker Networks",
+      "code": "docker network ls"
+    },
+    {
+      "step": 42,
+      "title": "Connect a Container to a Network",
+      "code": "docker network connect <network-name> <container-id>"
+    },
+    {
+      "step": 43,
+      "title": "Disconnect a Container from a Network",
+      "code": "docker network disconnect <network-name> <container-id>"
+    },
+    {
+      "step": 44,
+      "title": "Remove a Docker Network",
+      "code": "docker network rm <network-name>"
+    },
+    {
+      "step": 45,
+      "title": "Start All Containers",
+      "code": "docker start $(docker ps -a -q)"
+    },
+    {
+      "step": 46,
+      "title": "Stop All Containers",
+      "code": "docker stop $(docker ps -a -q)"
+    },
+    {
+      "step": 47,
+      "title": "Remove All Containers",
+      "code": "docker rm $(docker ps -a -q)"
+    },
+    {
+      "step": 48,
+      "title": "Remove All Docker Images",
+      "code": "docker rmi $(docker images -q)"
+    },
+    {
+      "step": 49,
+      "title": "Create a Volume",
+      "code": "docker volume create <volume-name>"
+    },
+    {
+      "step": 50,
+      "title": "List Docker Volumes",
+      "code": "docker volume ls"
+    },
+    {
+      "step": 51,
+      "title": "Inspect a Volume",
+      "code": "docker volume inspect <volume-name>"
+    },
+    {
+      "step": 52,
+      "title": "Remove a Volume",
+      "code": "docker volume rm <volume-name>"
+    },
+    {
+      "step": 53,
+      "title": "Mount a Volume to a Container",
+      "code": "docker run -v <volume-name>:/path/in/container <image-name>"
+    },
+    {
+      "step": 54,
+      "title": "Bind Mount a Host Directory to a Container",
+      "code": "docker run -v /host/path:/container/path <image-name>"
+    },
+    {
+      "step": 55,
+      "title": "Show Container Resource Usage (live)",
+      "code": "docker stats"
+    },
+    {
+      "step": 56,
+      "title": "Limit CPU Usage for a Container",
+      "code": "docker run --cpus=\"1.5\" <image-name>"
+    },
+    {
+      "step": 57,
+      "title": "Limit Memory Usage for a Container",
+      "code": "docker run --memory=\"256m\" <image-name>"
+    },
+    {
+      "step": 58,
+      "title": "Create a Dockerfile",
+      "code": "echo 'FROM <base-image>...' > Dockerfile"
+    },
+    
+    {
+      "step": 59,
+      "title": "Add a Maintainer in Dockerfile",
+      "code": "LABEL maintainer=\"<your-name>\""
+    },
+    {
+      "step": 60,
+      "title": "Set the Base Image in Dockerfile",
+      "code": "FROM <base-image>"
+    },
+    {
+      "step": 61,
+      "title": "Set the Working Directory in Dockerfile",
+      "code": "WORKDIR /app"
+    },
+    {
+      "step": 62,
+      "title": "Copy Files to Container in Dockerfile",
+      "code": "COPY . /app"
+    },
+    {
+      "step": 63,
+      "title": "Run a Command in Dockerfile",
+      "code": "RUN <command>"
+    },
+    {
+      "step": 64,
+      "title": "Expose a Port in Dockerfile",
+      "code": "EXPOSE <port-number>"
+    },
+    {
+      "step": 65,
+      "title": "Set the Default Command in Dockerfile",
+      "code": "CMD [\"executable\", \"param1\", \"param2\"]"
+    },
+    {
+      "step": 66,
+      "title": "Set an Entry Point in Dockerfile",
+      "code": "ENTRYPOINT [\"executable\", \"param1\"]"
+    },
+    {
+      "step": 67,
+      "title": "Build an Image from Dockerfile with a Tag",
+      "code": "docker build -t <image-name>:<tag> ."
+    },
+    {
+      "step": 68,
+      "title": "Create a Container from a Dockerfile",
+      "code": "docker build -f <Dockerfile> -t <image-name> ."
+    },
+    {
+      "step": 69,
+      "title": "Run a Container with Environment Variables",
+      "code": "docker run -e \"ENV_VAR=value\" <image-name>"
+    },
+    {
+      "step": 70,
+      "title": "Run a Container with Multiple Environment Variables",
+      "code": "docker run -e VAR1=value1 -e VAR2=value2 <image-name>"
+    },
+    {
+      "step": 71,
+      "title": "Run a Container with a Config File",
+      "code": "docker config create <config-name> <file>"
+    },
+    {
+      "step": 72,
+      "title": "Create a Docker Compose File",
+      "code": "touch docker-compose.yml"
+    },
+    {
+      "step": 73,
+      "title": "Run Containers with Docker Compose",
+      "code": "docker-compose up"
+    },
+    {
+      "step": 74,
+      "title": "Stop Docker Compose Containers",
+      "code": "docker-compose down"
+    },
+    {
+      "step": 75,
+      "title": "Run Docker Compose in Detached Mode",
+      "code": "docker-compose up -d"
+    },
+    {
+      "step": 76,
+      "title": "View Logs from Docker Compose",
+      "code": "docker-compose logs"
+    },
+    {
+      "step": 77,
+      "title": "Build Images Before Starting Docker Compose",
+      "code": "docker-compose up --build"
+    },
+    {
+      "step": 78,
+      "title": "List Running Docker Compose Containers",
+      "code": "docker-compose ps"
+    },
+    {
+      "step": 79,
+      "title": "Scale a Docker Compose Service",
+      "code": "docker-compose up --scale <service-name>=<number>"
+    },
+    {
+      "step": 80,
+      "title": "Restart Docker Compose Containers",
+      "code": "docker-compose restart"
+    },
+    {
+      "step": 81,
+      "title": "Remove Volumes When Stopping Docker Compose",
+      "code": "docker-compose down --volumes"
+    },
+    {
+      "step": 82,
+      "title": "List Services in Docker Compose",
+      "code": "docker-compose config --services"
+    },
+    {
+      "step": 83,
+      "title": "View Network of Docker Compose",
+      "code": "docker-compose network ls"
+    },
+    {
+      "step": 84,
+      "title": "Stop All Docker Containers",
+      "code": "docker stop $(docker ps -aq)"
+    },
+    {
+      "step": 85,
+      "title": "Remove All Docker Containers",
+      "code": "docker rm $(docker ps -aq)"
+    },
+    {
+      "step": 86,
+      "title": "Remove All Docker Images",
+      "code": "docker rmi $(docker images -q)"
+    },
+    {
+      "step": 87,
+      "title": "Remove All Docker Volumes",
+      "code": "docker volume rm $(docker volume ls -q)"
+    },
+    {
+      "step": 88,
+      "title": "View Docker Compose Container Status",
+      "code": "docker-compose ps"
+    },
+    {
+      "step": 89,
+      "title": "Run a Detached Container with a Volume",
+      "code": "docker run -d -v <volume-name>:/container/path <image-name>"
+    },
+    {
+      "step": 90,
+      "title": "Create an Overlay Network",
+      "code": "docker network create -d overlay <network-name>"
+    },
+    {
+      "step": 91,
+      "title": "Remove a Docker Overlay Network",
+      "code": "docker network rm <network-name>"
+    },
+    {
+      "step": 92,
+      "title": "Prune All Unused Volumes",
+      "code": "docker volume prune"
+    },
+    {
+      "step": 93,
+      "title": "Show Running Containers' Network Statistics",
+      "code": "docker network ls"
+    },
+    {
+      "step": 94,
+      "title": "Check Details of Docker Storage",
+      "code": "docker system df"
+    },
+    {
+      "step": 95,
+      "title": "Monitor Docker Events in Real-Time",
+      "code": "docker events"
+    },
+    {
+      "step": 96,
+      "title": "Get Docker System Information",
+      "code": "docker info"
+    },
+    {
+      "step": 97,
+      "title": "Pull a Specific Version of an Image",
+      "code": "docker pull <image-name>:<version>"
+    },
+    {
+      "step": 98,
+      "title": "Start a Container from an Image with a Shell",
+      "code": "docker run -it <image-name> /bin/sh"
+    },
+    {
+      "step": 99,
+      "title": "Run a Container and Remove After Exit",
+      "code": "docker run --rm <image-name>"
+    },
+    {
+      "step": 100,
+      "title": "Show Container’s IP Address",
+      "code": "docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container-id>"
+    }
+  
+
+
+    
+    
+    ]
+   

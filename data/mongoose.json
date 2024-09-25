@@ -1,0 +1,90 @@
+[
+  {
+    "title": "Connect to MongoDB",
+    "code": "const mongoose = require('mongoose');\n\nmongoose.connect('mongodb://localhost/mydatabase', {\n  useNewUrlParser: true,\n  useUnifiedTopology: true\n}).then(() => {\n  console.log('Connected to MongoDB');\n}).catch((err) => {\n  console.error('Failed to connect to MongoDB', err);\n});"
+  },
+  {
+    "title": "Define a Schema",
+    "code": "const mongoose = require('mongoose');\n\nconst userSchema = new mongoose.Schema({\n  name: String,\n  email: String,\n  password: String,\n  created_at: { type: Date, default: Date.now }\n});\n\nconst User = mongoose.model('User', userSchema);"
+  },
+  {
+    "title": "Create a Document",
+    "code": "const newUser = new User({\n  name: 'John Doe',\n  email: 'johndoe@example.com',\n  password: 'password123'\n});\n\nnewUser.save()\n  .then(() => console.log('User saved!'))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Find a Document",
+    "code": "User.findOne({ email: 'johndoe@example.com' })\n  .then(user => console.log(user))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Find Multiple Documents",
+    "code": "User.find({ name: 'John Doe' })\n  .then(users => console.log(users))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Update a Document",
+    "code": "User.updateOne({ email: 'johndoe@example.com' }, { password: 'newpassword' })\n  .then(() => console.log('User updated!'))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Delete a Document",
+    "code": "User.deleteOne({ email: 'johndoe@example.com' })\n  .then(() => console.log('User deleted!'))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Find by ID",
+    "code": "User.findById('60f6aeed0c2d4c23d4a45130')\n  .then(user => console.log(user))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Update by ID",
+    "code": "User.findByIdAndUpdate('60f6aeed0c2d4c23d4a45130', { name: 'Jane Doe' })\n  .then(user => console.log('User updated:', user))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Delete by ID",
+    "code": "User.findByIdAndDelete('60f6aeed0c2d4c23d4a45130')\n  .then(() => console.log('User deleted'))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Schema with Validation",
+    "code": "const userSchema = new mongoose.Schema({\n  name: { type: String, required: true },\n  email: { type: String, required: true, unique: true },\n  password: { type: String, required: true }\n});"
+  },
+  {
+    "title": "Pre-save Hook",
+    "code": "userSchema.pre('save', function(next) {\n  // Perform some action before saving the document\n  console.log('Before saving:', this);\n  next();\n});"
+  },
+  {
+    "title": "Virtual Fields",
+    "code": "userSchema.virtual('fullName').get(function() {\n  return this.firstName + ' ' + this.lastName;\n});"
+  },
+  {
+    "title": "Aggregation Example",
+    "code": "User.aggregate([\n  { $match: { age: { $gt: 18 } } },\n  { $group: { _id: '$age', total: { $sum: 1 } } }\n])\n  .then(result => console.log(result))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Populate Example",
+    "code": "User.findOne({ _id: '60f6aeed0c2d4c23d4a45130' })\n  .populate('posts')\n  .then(user => console.log(user))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Index Example",
+    "code": "userSchema.index({ email: 1 }, { unique: true });"
+  },
+  {
+    "title": "Text Search Index",
+    "code": "userSchema.index({ name: 'text', email: 'text' });\n\nUser.find({ $text: { $search: 'John' } })\n  .then(users => console.log(users))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Pagination Example",
+    "code": "const page = 1;\nconst limit = 10;\n\nUser.find()\n  .skip((page - 1) * limit)\n  .limit(limit)\n  .then(users => console.log(users))\n  .catch(err => console.error(err));"
+  },
+  {
+    "title": "Mongoose Validation",
+    "code": "const userSchema = new mongoose.Schema({\n  email: {\n    type: String,\n    required: [true, 'Email is required'],\n    match: [/\\S+@\\S+\\.\\S+/, 'Email is invalid'],\n    unique: true\n  }\n});"
+  },
+  {
+    "title": "Unique Field Validation",
+    "code": "userSchema.path('email').validate(async (email) => {\n  const emailCount = await mongoose.models.User.countDocuments({ email });\n  return !emailCount;\n}, 'Email already exists');"
+  },
+  {
+    "title": "Mongoose Connection Events",
+    "code": "mongoose.connection.on('connected', () => {\n  console.log('Mongoose connected to DB');\n});\n\nmongoose.connection.on('error', (err) => {\n  console.log('Mongoose connection error:', err);\n});"
+  },
+  {
+    "title": "Bulk Write Operation",
+    "code": "User.bulkWrite([\n  { insertOne: { document: { name: 'John' } } },\n  { updateOne: { filter: { name: 'Jane' }, update: { age: 30 } } },\n  { deleteOne: { filter: { name: 'Doe' } } }\n])\n  .then(result => console.log(result))\n  .catch(err => console.error(err));"
+  }
+]

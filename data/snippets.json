@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Vue.js",
+        "description": "Vue.js cheatsheet",
+        "link": "/vue.html"
+    },
+    {
+        "id": 2,
+        "title": "Express.js",
+        "description": "Building and managing Express.js applications.",
+        "link": "express.html"
+    },
+    {
+        "id": 3,
+        "title": "Mongoose",
+        "description": "Using Mongoose with MongoDB.",
+        "link": "/mongoose.html"
+    },
+    {
+        "id": 4,
+        "title": "API",
+        "description": "Usage of APIs.",
+        "link": "/api.html"
+    },
+    {
+      "id": 5,
+      "title": "CSS 50 Important Snippets",
+      "description": "A collection of 50 important CSS snippets.",
+      "link": "/50-css-snippets.html"
+    }
+]

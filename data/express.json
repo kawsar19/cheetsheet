@@ -1,0 +1,284 @@
+[
+  {
+    "title": "Create an Express Application",
+    "code": "const express = require('express');\nconst app = express();"
+  },
+  {
+    "title": "Start the Server",
+    "code": "const port = 3000;\napp.listen(port, () => {\n  console.log(`Server is running on http://localhost:${port}`);\n});"
+  },
+  {
+    "title": "Basic Routing",
+    "code": "app.get('/', (req, res) => {\n  res.send('Hello, World!');\n});"
+  },
+  {
+    "title": "Route Parameters",
+    "code": "app.get('/user/:id', (req, res) => {\n  res.send(`User ID: ${req.params.id}`);\n});"
+  },
+  {
+    "title": "Query Parameters",
+    "code": "app.get('/search', (req, res) => {\n  const query = req.query.q;\n  res.send(`Search query: ${query}`);\n});"
+  },
+  {
+    "title": "Middleware Example",
+    "code": "app.use((req, res, next) => {\n  console.log(`${req.method} ${req.url}`);\n  next();\n});"
+  },
+  {
+    "title": "Serving Static Files",
+    "code": "app.use(express.static('public'));"
+  },
+  {
+    "title": "Handling JSON Requests",
+    "code": "app.use(express.json());\n\napp.post('/data', (req, res) => {\n  res.send(req.body);\n});"
+  },
+  {
+    "title": "Error Handling Middleware",
+    "code": "app.use((err, req, res, next) => {\n  console.error(err.stack);\n  res.status(500).send('Something broke!');\n});"
+  },
+  {
+    "title": "Using Express Router",
+    "code": "const router = express.Router();\n\nrouter.get('/example', (req, res) => {\n  res.send('Example route!');\n});\n\napp.use('/api', router);"
+  },
+  {
+    "title": "Handling Form Data",
+    "code": "app.use(express.urlencoded({ extended: true }));\n\napp.post('/submit', (req, res) => {\n  res.send(`Form submitted: ${req.body.name}`);\n});"
+  },
+  {
+    "title": "Set Response Headers",
+    "code": "app.get('/header', (req, res) => {\n  res.set('Custom-Header', 'value');\n  res.send('Header set!');\n});"
+  },
+  {
+    "title": "Redirecting Requests",
+    "code": "app.get('/old-route', (req, res) => {\n  res.redirect('/new-route');\n});"
+  },
+  {
+    "title": "Using Environment Variables",
+    "code": "const port = process.env.PORT || 3000;\napp.listen(port, () => {\n  console.log(`Server is running on port ${port}`);\n});"
+  },
+  {
+    "title": "CORS Middleware",
+    "code": "const cors = require('cors');\napp.use(cors());"
+  },
+  {
+    "title": "Custom 404 Handler",
+    "code": "app.use((req, res) => {\n  res.status(404).send('404 Not Found');\n});"
+  },
+  {
+    "title": "Basic Authentication",
+    "code": "app.use((req, res, next) => {\n  const auth = req.headers['authorization'];\n  if (auth) {\n    next();\n  } else {\n    res.status(401).send('Unauthorized');\n  }\n});"
+  },
+  {
+    "title": "Responding with JSON",
+    "code": "app.get('/json', (req, res) => {\n  res.json({ message: 'Hello JSON!' });\n});"
+  },
+  {
+    "title": "Handling File Uploads with Multer",
+    "code": "const multer = require('multer');\nconst upload = multer({ dest: 'uploads/' });\n\napp.post('/upload', upload.single('file'), (req, res) => {\n  res.send('File uploaded!');\n});"
+  },
+  {
+    "title": "Using Promises",
+    "code": "app.get('/promise', (req, res) => {\n  return new Promise((resolve, reject) => {\n    resolve('Promise resolved!');\n  }).then(message => res.send(message));\n});"
+  },
+  {
+    "title": "Asynchronous Route Handlers",
+    "code": "app.get('/async', async (req, res) => {\n  const data = await someAsyncFunction();\n  res.send(data);\n});"
+  },
+  {
+    "title": "Creating a REST API",
+    "code": "app.route('/api/items')\n  .get((req, res) => {\n    res.json(items);\n  })\n  .post((req, res) => {\n    items.push(req.body);\n    res.status(201).send(req.body);\n  });"
+  },
+  {
+    "title": "Using Helmet for Security",
+    "code": "const helmet = require('helmet');\napp.use(helmet());"
+  },
+  {
+    "title": "Setting View Engine",
+    "code": "app.set('view engine', 'ejs');\n\napp.get('/view', (req, res) => {\n  res.render('index', { title: 'My Title' });\n});"
+  },
+  {
+    "title": "Rendering HTML Directly",
+    "code": "app.get('/html', (req, res) => {\n  res.send('<h1>Hello HTML</h1>');\n});"
+  },
+  {
+    "title": "Using EJS for Templating",
+    "code": "app.set('view engine', 'ejs');\n\napp.get('/user/:id', (req, res) => {\n  res.render('user', { userId: req.params.id });\n});"
+  },
+  {
+    "title": "Session Management with Express-Session",
+    "code": "const session = require('express-session');\napp.use(session({ secret: 'mySecret', resave: false, saveUninitialized: true }));"
+  },
+  {
+    "title": "Handling Cookies",
+    "code": "const cookieParser = require('cookie-parser');\napp.use(cookieParser());\n\napp.get('/setcookie', (req, res) => {\n  res.cookie('name', 'value');\n  res.send('Cookie set!');\n});"
+  },
+  {
+    "title": "Logging Requests with Morgan",
+    "code": "const morgan = require('morgan');\napp.use(morgan('combined'));"
+  },
+  {
+    "title": "Serving API Documentation",
+    "code": "app.get('/api-docs', (req, res) => {\n  res.sendFile(path.join(__dirname, 'api-docs.html'));\n});"
+  },
+  {
+    "title": "Health Check Route",
+    "code": "app.get('/health', (req, res) => {\n  res.status(200).send('OK');\n});"
+  },
+  {
+    "title": "Rate Limiting with Express-Rate-Limit",
+    "code": "const rateLimit = require('express-rate-limit');\nconst limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });\napp.use(limiter);"
+  },
+  {
+    "title": "Using WebSockets with Socket.IO",
+    "code": "const server = require('http').createServer(app);\nconst io = require('socket.io')(server);\n\nio.on('connection', (socket) => {\n  console.log('a user connected');\n});"
+  },
+  {
+    "title": "Implementing Basic Authentication",
+    "code": "app.get('/protected', (req, res) => {\n  const auth = req.headers['authorization'];\n  if (auth === 'Basic ' + Buffer.from('user:pass').toString('base64')) {\n    res.send('Access granted');\n  } else {\n    res.status(401).send('Access denied');\n  }\n});"
+  },
+  {
+    "title": "File Streaming",
+    "code": "const fs = require('fs');\n\napp.get('/file', (req, res) => {\n  const readStream = fs.createReadStream('file.txt');\n  readStream.pipe(res);\n});"
+  },
+  {
+    "title": "Graceful Shutdown",
+    "code": "process.on('SIGINT', () => {\n  server.close(() => {\n    console.log('Server closed');\n  });\n});"
+  },
+
+  {
+    "title": "Cross-Origin Resource Sharing (CORS)",
+    "code": "const cors = require('cors');\napp.use(cors({ origin: 'http://example.com' }));"
+  },
+  {
+    "title": "Dynamic Route Handling",
+    "code": "app.get('/posts/:postId/comments/:commentId', (req, res) => {\n  res.send(`Post ID: ${req.params.postId}, Comment ID: ${req.params.commentId}`);\n});"
+  },
+  {
+    "title": "Rate Limiting with Express-Rate-Limit",
+    "code": "const rateLimit = require('express-rate-limit');\nconst limiter = rateLimit({\n  windowMs: 15 * 60 * 1000, // 15 minutes\n  max: 100 // limit each IP to 100 requests per windowMs\n});\napp.use(limiter);"
+  },
+  {
+    "title": "Caching with Cache-Control",
+    "code": "app.get('/data', (req, res) => {\n  res.set('Cache-Control', 'public, max-age=300');\n  res.json({ data: 'This is cached for 5 minutes' });\n});"
+  },
+  {
+    "title": "Rate Limiting Middleware",
+    "code": "app.use((req, res, next) => {\n  // Rate limiting logic\n  next();\n});"
+  },
+  {
+    "title": "Environment-Specific Configurations",
+    "code": "if (process.env.NODE_ENV === 'production') {\n  app.use(express.static('build'));\n} else {\n  app.use(express.static('public'));\n}"
+  },
+  {
+    "title": "Setting Custom Error Status Codes",
+    "code": "app.use((err, req, res, next) => {\n  res.status(err.status || 500);\n  res.json({ error: err.message });\n});"
+  },
+  {
+    "title": "Cookie Options",
+    "code": "res.cookie('name', 'value', { maxAge: 900000, httpOnly: true });"
+  },
+  {
+    "title": "Using Sessions",
+    "code": "const session = require('express-session');\napp.use(session({ secret: 'mySecret', resave: false, saveUninitialized: true }));"
+  },
+  {
+    "title": "Parsing Different Content Types",
+    "code": "app.use(express.text());\napp.use(express.raw());"
+  },
+  {
+    "title": "Multiple Static Directories",
+    "code": "app.use('/static', express.static('public'));\napp.use('/files', express.static('uploads'));"
+  },
+  {
+    "title": "Custom Request Logger",
+    "code": "app.use((req, res, next) => {\n  console.log(`${req.method} ${req.url} - ${new Date().toISOString()}`);\n  next();\n});"
+  },
+  {
+    "title": "File Upload with Multer",
+    "code": "const multer = require('multer');\nconst upload = multer({ dest: 'uploads/' });\n\napp.post('/upload', upload.single('file'), (req, res) => {\n  res.send('File uploaded!');\n});"
+  },
+  {
+    "title": "Sending Emails with Nodemailer",
+    "code": "const nodemailer = require('nodemailer');\n\napp.post('/send', (req, res) => {\n  const transporter = nodemailer.createTransport({ /* transport config */ });\n  transporter.sendMail({ to: req.body.email, subject: 'Hello', text: 'Hello world' }, (err, info) => {\n    if (err) return res.status(500).send(err);\n    res.send('Email sent!');\n  });\n});"
+  },
+  {
+    "title": "Request Timeout",
+    "code": "const timeout = require('connect-timeout');\napp.use(timeout('5s'));"
+  },
+  {
+    "title": "Serving Multiple View Engines",
+    "code": "app.engine('ejs', require('ejs').__express);\napp.set('view engine', 'ejs');"
+  },
+  {
+    "title": "Using dotenv for Environment Variables",
+    "code": "require('dotenv').config();\nconst port = process.env.PORT || 3000;"
+  },
+  {
+    "title": "Handling HTTP Methods",
+    "code": "app.route('/items')\n  .get((req, res) => res.send('Get items'))\n  .post((req, res) => res.send('Add item'));\n"
+  },
+  {
+    "title": "Static File Middleware with Caching",
+    "code": "app.use('/static', express.static('public', { maxAge: '1d' }));"
+  },
+  {
+    "title": "Dynamic Templating with EJS",
+    "code": "app.get('/user/:name', (req, res) => {\n  res.render('user', { name: req.params.name });\n});"
+  },
+  {
+    "title": "Multiple Router Instances",
+    "code": "const userRouter = express.Router();\nconst productRouter = express.Router();\n\nuserRouter.get('/', (req, res) => { res.send('User route'); });\nproductRouter.get('/', (req, res) => { res.send('Product route'); });\n\napp.use('/users', userRouter);\napp.use('/products', productRouter);"
+  },
+  {
+    "title": "Error Handling for Async Functions",
+    "code": "const asyncHandler = fn => (req, res, next) => {\n  Promise.resolve(fn(req, res, next)).catch(next);\n};\n\napp.get('/async', asyncHandler(async (req, res) => {\n  const result = await someAsyncFunction();\n  res.send(result);\n}));"
+  },
+  {
+    "title": "Setting a Timeout for Requests",
+    "code": "const timeout = (req, res, next) => {\n  res.setTimeout(5000, () => {\n    res.status(503).send('Service Unavailable');\n  });\n  next();\n};\napp.use(timeout);"
+  },
+  {
+    "title": "Using Redis for Session Store",
+    "code": "const RedisStore = require('connect-redis')(session);\nconst redisClient = redis.createClient();\napp.use(session({ store: new RedisStore({ client: redisClient }), secret: 'mySecret', resave: false, saveUninitialized: true }));"
+  },
+  {
+    "title": "Creating a Custom Middleware",
+    "code": "const myMiddleware = (req, res, next) => {\n  console.log('Custom middleware executed');\n  next();\n};\napp.use(myMiddleware);"
+  },
+  {
+    "title": "Health Check Endpoint",
+    "code": "app.get('/health', (req, res) => {\n  res.json({ status: 'UP' });\n});"
+  },
+  {
+    "title": "Using a Catch-All Route",
+    "code": "app.all('*', (req, res) => {\n  res.status(404).send('Not Found');\n});"
+  },
+  {
+    "title": "Setting Custom Request Properties",
+    "code": "app.use((req, res, next) => {\n  req.customProperty = 'Custom Value';\n  next();\n});"
+  },
+  {
+    "title": "Using Async/Await with Error Handling",
+    "code": "app.get('/async', async (req, res, next) => {\n  try {\n    const data = await someAsyncFunction();\n    res.json(data);\n  } catch (error) {\n    next(error);\n  }\n});"
+  },
+  {
+    "title": "Basic WebSocket Example",
+    "code": "const http = require('http');\nconst server = http.createServer(app);\nconst io = require('socket.io')(server);\n\nio.on('connection', (socket) => {\n  console.log('a user connected');\n});"
+  },
+  {
+    "title": "Connection to MongoDB with Mongoose",
+    "code": "const mongoose = require('mongoose');\nmongoose.connect('mongodb://localhost:27017/myapp', { useNewUrlParser: true, useUnifiedTopology: true });"
+  },
+  {
+    "title": "Creating a Basic API Endpoint",
+    "code": "app.get('/api/items', (req, res) => {\n  res.json([{ id: 1, name: 'Item 1' }, { id: 2, name: 'Item 2' }]);\n});"
+  },
+  {
+    "title": "Using Body Parser Middleware",
+    "code": "const bodyParser = require('body-parser');\napp.use(bodyParser.json());"
+  },
+  {
+    "title": "Customizing Response Status",
+    "code": "app.get('/response', (req, res) => {\n  res.status(201).send('Resource created');\n});"
+  }
+  ]
+   
