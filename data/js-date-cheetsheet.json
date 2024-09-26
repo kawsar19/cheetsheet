@@ -1,0 +1,239 @@
+[
+  {
+    "title": "Get Current Date",
+    "code": "const currentDate = new Date();\nconsole.log(currentDate); \n\n// Current date and time"
+  },
+  {
+    "title": "Get Year",
+    "code": "const currentYear = new Date().getFullYear();\nconsole.log(currentYear); \n// e.g., 2024"
+  },
+  {
+    "title": "Get Month (0-11)",
+    "code": "const currentMonth = new Date().getMonth();\nconsole.log(currentMonth); \n// e.g., 8 (September)"
+  },
+  {
+    "title": "Get Day of the Month",
+    "code": "const currentDay = new Date().getDate();\nconsole.log(currentDay); \n// e.g., 26"
+  },
+  {
+    "title": "Get Day of the Week (0-6)",
+    "code": "const dayOfWeek = new Date().getDay();\nconsole.log(dayOfWeek); \n// e.g., 4 (Thursday)"
+  },
+  {
+    "title": "Get Hours",
+    "code": "const currentHours = new Date().getHours();\nconsole.log(currentHours); \n// e.g., 14 (2 PM)"
+  },
+  {
+    "title": "Get Minutes",
+    "code": "const currentMinutes = new Date().getMinutes();\nconsole.log(currentMinutes); \n// e.g., 45"
+  },
+  {
+    "title": "Get Seconds",
+    "code": "const currentSeconds = new Date().getSeconds();\nconsole.log(currentSeconds); \n// e.g., 30"
+  },
+  {
+    "title": "Get Milliseconds",
+    "code": "const currentMilliseconds = new Date().getMilliseconds();\nconsole.log(currentMilliseconds); \n// e.g., 123"
+  },
+  {
+    "title": "Get Time (milliseconds since 1970)",
+    "code": "const timeInMilliseconds = new Date().getTime();\nconsole.log(timeInMilliseconds); \n// e.g., 1725184678123"
+  },
+  {
+    "title": "Create a Date from a String",
+    "code": "const dateFromString = new Date('2024-09-26');\nconsole.log(dateFromString); \n// Thu Sep 26 2024"
+  },
+  {
+    "title": "Create a Date from Components",
+    "code": "const specificDate = new Date(2024, 8, 26, 14, 30);\nconsole.log(specificDate); \n// Thu Sep 26 2024 14:30:00"
+  },
+  {
+    "title": "Get UTC Date",
+    "code": "const utcDate = new Date().getUTCDate();\nconsole.log(utcDate); \n// e.g., 26"
+  },
+  {
+    "title": "Date to ISO String",
+    "code": "const isoString = new Date().toISOString();\nconsole.log(isoString); \n// e.g., 2024-09-26T14:30:00.000Z"
+  },
+  {
+    "title": "Date to Locale String",
+    "code": "const localeString = new Date().toLocaleString();\nconsole.log(localeString); \n// e.g., 9/26/2024, 2:30:00 PM"
+  },
+  {
+    "title": "Date to Locale Date String",
+    "code": "const localeDateString = new Date().toLocaleDateString();\nconsole.log(localeDateString); \n// e.g., 9/26/2024"
+  },
+  {
+    "title": "Date to Locale Time String",
+    "code": "const localeTimeString = new Date().toLocaleTimeString();\nconsole.log(localeTimeString); \n// e.g., 2:30:00 PM"
+  },
+  {
+    "title": "Set Year",
+    "code": "const date = new Date();\ndate.setFullYear(2025);\nconsole.log(date); \n// Date set to 2025"
+  },
+  {
+    "title": "Set Month",
+    "code": "const date = new Date();\ndate.setMonth(11); \n// December (Months are 0-indexed)\nconsole.log(date);"
+  },
+  {
+    "title": "Set Day of the Month",
+    "code": "const date = new Date();\ndate.setDate(15);\nconsole.log(date); \n// Day set to 15th"
+  },
+  {
+    "title": "Set Hours",
+    "code": "const date = new Date();\ndate.setHours(10);\nconsole.log(date); \n// Hours set to 10 AM"
+  },
+  {
+    "title": "Set Minutes",
+    "code": "const date = new Date();\ndate.setMinutes(45);\nconsole.log(date); \n// Minutes set to 45"
+  },
+  {
+    "title": "Set Seconds",
+    "code": "const date = new Date();\ndate.setSeconds(30);\nconsole.log(date); \n// Seconds set to 30"
+  },
+  {
+    "title": "Date Comparison",
+    "code": "const date1 = new Date('2024-09-26');\nconst date2 = new Date('2024-10-01');\nconsole.log(date1 < date2); \n// true"
+  },
+  {
+    "title": "Add Days to Date",
+    "code": "const date = new Date();\ndate.setDate(date.getDate() + 5);\nconsole.log(date); \n// 5 days later"
+  },
+  {
+    "title": "Subtract Days from Date",
+    "code": "const date = new Date();\ndate.setDate(date.getDate() - 5);\nconsole.log(date); \n// 5 days earlier"
+  },
+  {
+    "title": "Difference in Days Between Two Dates",
+    "code": "const date1 = new Date('2024-09-26');\nconst date2 = new Date('2024-10-01');\nconst differenceInTime = date2.getTime() - date1.getTime();\nconst differenceInDays = differenceInTime / (1000 * 3600 * 24);\nconsole.log(differenceInDays); \n// 5"
+  },
+  {
+    "title": "Convert Date to Timestamp",
+    "code": "const timestamp = Date.now();\nconsole.log(timestamp); \n// Current timestamp in milliseconds"
+  },
+  {
+    "title": "Format Date in Custom Format",
+    "code": "const date = new Date();\nconst formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;\nconsole.log(formattedDate); \n// e.g., 26/9/2024"
+  },
+
+  {
+    "title": "Get Timezone Offset (in minutes)",
+    "code": "const timezoneOffset = new Date().getTimezoneOffset();\nconsole.log(timezoneOffset); \n// e.g., -240 (for UTC-4)"
+  },
+  {
+    "title": "Convert Timezone Offset to Hours",
+    "code": "const timezoneOffsetInHours = new Date().getTimezoneOffset() / 60;\nconsole.log(timezoneOffsetInHours); \n// e.g., -4"
+  },
+  {
+    "title": "Set UTC Hours",
+    "code": "const date = new Date();\ndate.setUTCHours(14);\nconsole.log(date); \n// UTC time with hours set to 14"
+  },
+  {
+    "title": "Get UTC Full Year",
+    "code": "const utcYear = new Date().getUTCFullYear();\nconsole.log(utcYear); \n// e.g., 2024"
+  },
+  {
+    "title": "Get UTC Month",
+    "code": "const utcMonth = new Date().getUTCMonth();\nconsole.log(utcMonth); \n// e.g., 8 (for September)"
+  },
+  {
+    "title": "Get UTC Day of the Month",
+    "code": "const utcDay = new Date().getUTCDate();\nconsole.log(utcDay); \n// e.g., 26"
+  },
+  {
+    "title": "Get UTC Day of the Week",
+    "code": "const utcDayOfWeek = new Date().getUTCDay();\nconsole.log(utcDayOfWeek); \n// e.g., 4 (Thursday)"
+  },
+  {
+    "title": "Get UTC Hours",
+    "code": "const utcHours = new Date().getUTCHours();\nconsole.log(utcHours); \n// e.g., 18"
+  },
+  {
+    "title": "Get UTC Minutes",
+    "code": "const utcMinutes = new Date().getUTCMinutes();\nconsole.log(utcMinutes); \n// e.g., 45"
+  },
+  {
+    "title": "Get UTC Seconds",
+    "code": "const utcSeconds = new Date().getUTCSeconds();\nconsole.log(utcSeconds); \n// e.g., 30"
+  },
+  {
+    "title": "Get UTC Milliseconds",
+    "code": "const utcMilliseconds = new Date().getUTCMilliseconds();\nconsole.log(utcMilliseconds); \n// e.g., 123"
+  },
+  {
+    "title": "Set UTC Full Year",
+    "code": "const date = new Date();\ndate.setUTCFullYear(2025);\nconsole.log(date); \n// Date with UTC year set to 2025"
+  },
+  {
+    "title": "Set UTC Month",
+    "code": "const date = new Date();\ndate.setUTCMonth(11); \n// December (UTC)\nconsole.log(date); \n// UTC date with month set to December"
+  },
+  {
+    "title": "Set UTC Date (Day of the Month)",
+    "code": "const date = new Date();\ndate.setUTCDate(15);\nconsole.log(date); \n// UTC date set to 15th of the month"
+  },
+  {
+    "title": "Set UTC Minutes",
+    "code": "const date = new Date();\ndate.setUTCMinutes(30);\nconsole.log(date); \n// UTC minutes set to 30"
+  },
+  {
+    "title": "Set UTC Seconds",
+    "code": "const date = new Date();\ndate.setUTCSeconds(45);\nconsole.log(date); \n// UTC seconds set to 45"
+  },
+  {
+    "title": "Format Date in MM-DD-YYYY",
+    "code": "const date = new Date();\nconst formattedDate = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;\nconsole.log(formattedDate); \n// e.g., 09-26-2024"
+  },
+  {
+    "title": "Format Date in YYYY-MM-DD",
+    "code": "const date = new Date();\nconst formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;\nconsole.log(formattedDate); \n// e.g., 2024-09-26"
+  },
+  {
+    "title": "Convert Timestamp to Date",
+    "code": "const timestamp = 1725184678123;\nconst date = new Date(timestamp);\nconsole.log(date); \n// e.g., Sat Sep 26 2024 14:30:00"
+  },
+  {
+    "title": "Check if a Year is a Leap Year",
+    "code": "const year = 2024;\nconst isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);\nconsole.log(isLeapYear); \n// true for 2024"
+  },
+  {
+    "title": "Get Days in a Month",
+    "code": "const getDaysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();\nconsole.log(getDaysInMonth(2024, 8)); \n// 30 for September 2024"
+  },
+  {
+    "title": "Add Hours to a Date",
+    "code": "const date = new Date();\ndate.setHours(date.getHours() + 5);\nconsole.log(date); \n// 5 hours later"
+  },
+  {
+    "title": "Subtract Hours from a Date",
+    "code": "const date = new Date();\ndate.setHours(date.getHours() - 5);\nconsole.log(date); \n// 5 hours earlier"
+  },
+  {
+    "title": "Add Minutes to a Date",
+    "code": "const date = new Date();\ndate.setMinutes(date.getMinutes() + 30);\nconsole.log(date); \n// 30 minutes later"
+  },
+  {
+    "title": "Subtract Minutes from a Date",
+    "code": "const date = new Date();\ndate.setMinutes(date.getMinutes() - 30);\nconsole.log(date); \n// 30 minutes earlier"
+  },
+  {
+    "title": "Start of the Day",
+    "code": "const date = new Date();\ndate.setHours(0, 0, 0, 0);\nconsole.log(date); \n// Start of the current day (00:00:00)"
+  },
+  {
+    "title": "End of the Day",
+    "code": "const date = new Date();\ndate.setHours(23, 59, 59, 999);\nconsole.log(date); \n// End of the current day (23:59:59.999)"
+  },
+  {
+    "title": "Check if a Date is Before Another Date",
+    "code": "const date1 = new Date('2024-09-25');\nconst date2 = new Date('2024-09-26');\nconsole.log(date1 < date2); \n// true"
+  },
+  {
+    "title": "Check if a Date is After Another Date",
+    "code": "const date1 = new Date('2024-09-26');\nconst date2 = new Date('2024-09-25');\nconsole.log(date1 > date2); \n// true"
+  },
+  {
+    "title": "Check if Two Dates are the Same Day",
+    "code": "const isSameDay = (date1, date2) =>\n  date1.getFullYear() === date2.getFullYear() &&\n  date1.getMonth() === date2.getMonth() &&\n  date1.getDate() === date2.getDate();\n\nconsole.log(isSameDay(new Date('2024-09-26'), new Date('2024-09-26'))); \n// true"
+  }
+]

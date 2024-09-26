@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Linux Commands</title>
+
+  <!-- Vue.js CDN -->
+  <script src="/js/vue.js"></script>
+
+  <!-- Bootstrap CSS and JS -->
+  <link href="/style/bootstrap.min.css" rel="stylesheet" />
+  <script src="/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Prism.js for colorful snippets -->
+  <link rel="stylesheet" href="/style/prism-okaidia.min.css">
+
+  <script src="/js/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+
+  <link rel="stylesheet" href="/style/main.css">
+  <script src="/js/prism-bash.min.js"></script>
+
+  <style>
+    .copy-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .copy-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .copied-message {
+      color: green;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="cheatsheet">
+    <h1 class="text-white">JS Date Cheetsheet </h1>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search snippets..." v-model="searchQuery" />
+    </div>
+
+    <div v-for="(item, index) in filteredSnippets" :key="index" class="snippet">
+      <h3 class="pe-5 text-white">{{ index + 1 }}. {{ item.title }}</h3>
+      <pre><code class="language-javascript" v-html="item.code"></code></pre>
+      <button class="copy-btn" @click="copyCode(index)">
+        <!-- SVG for copy icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 12h9M7.5 9h9m-9 6h9m-10.5 6h12A2.25 2.25 0 0021 18.75v-13.5A2.25 2.25 0 0018.75 3h-12A2.25 2.25 0 004.5 5.25v13.5A2.25 2.25 0 006.75 21zM18 7.5H9.75A2.25 2.25 0 007.5 9.75v10.5" />
+        </svg>
+      </button>
+      <span :class="{'copied-message': true, show: copiedIndex === index}">Copied!</span>
+    </div>
+
+    <div class="footer">
+      <a href="/">Home</a>
+      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">Menu</a>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasMenuLabel">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="list-group">
+          <li class="list-group-item" v-for="menuItem in menuItems" :key="menuItem.id" :class="{ active: isActive(menuItem.link) }">
+            <a :href="menuItem.link" class="d-block text-decoration-none">
+              <h5>{{ menuItem.title }}</h5>
+              <p class="text-black">{{ menuItem.description }}</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        snippets: [],
+        searchQuery: '',
+        menuItems: [],
+        copiedIndex: null // To track which snippet is copied
+      },
+      computed: {
+        filteredSnippets() {
+          if (!this.searchQuery) return this.snippets;
+          return this.snippets.filter(item =>
+            item.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+            item.code.toLowerCase().includes(this.searchQuery.toLowerCase())
+          );
+        }
+      },
+      mounted() {
+        
+        const date1 = new Date('2024-09-26');
+        const date2 = new Date('2024-10-01');
+        const differenceInTime = date2.getTime() - date1.getTime();
+        const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+        console.log(differenceInDays);
+        // 5
+        
+        // Fetch the JSON file for snippets
+        fetch('/data/js-date-cheetsheet.json')
+          .then(response => response.json())
+          .then(data => {
+            this.snippets = data;
+            this.$nextTick(() => {
+              Prism.highlightAll(); // Highlight code after Vue renders the snippets
+            });
+          })
+          .catch(error => console.error('Error loading snippets JSON:', error));
+
+        // Fetch the JSON data for menu items
+        fetch('/data/snippets.json')
+          .then(response => response.json())
+          .then(data => {
+            this.menuItems = data;
+          })
+          .catch(error => console.error('Error loading menu JSON:', error));
+      },
+      methods: {
+        copyCode(index) {
+          const el = document.createElement('textarea');
+          el.value = this.snippets[index].code;
+          document.body.appendChild(el);
+          el.select();
+          document.execCommand('copy');
+          document.body.removeChild(el);
+          
+          // Set the copiedIndex to the current index and reset it after 2 seconds
+          this.copiedIndex = index;
+          setTimeout(() => {
+            this.copiedIndex = null;
+          }, 2000);
+        },
+        isActive(link) {
+          return window.location.href.includes(link); // Check if the current URL matches the link
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
