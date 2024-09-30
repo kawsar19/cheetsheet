@@ -1,0 +1,167 @@
+[
+  {
+    "title": "Simple Functional Component",
+    "code": "function HelloWorld() {\n  return <h1>Hello, World!</h1>;\n}\n\nexport default HelloWorld;"
+  },
+  {
+    "title": "Render a Component",
+    "code": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport HelloWorld from './HelloWorld';\n\nReactDOM.render(<HelloWorld />, document.getElementById('root'));"
+  },
+  {
+    "title": "Using useState Hook",
+    "code": "import React, { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={() => setCount(count + 1)}>Increment</button>\n    </div>\n  );\n}\n\nexport default Counter;"
+  },
+  {
+    "title": "Handling Events",
+    "code": "function Button() {\n  function handleClick() {\n    alert('Button clicked!');\n  }\n\n  return <button onClick={handleClick}>Click Me!</button>;\n}\n\nexport default Button;"
+  },
+  {
+    "title": "Conditional Rendering",
+    "code": "function Greeting({ isLoggedIn }) {\n  return (\n    <div>\n      {isLoggedIn ? <h1>Welcome back!</h1> : <h1>Please sign up.</h1>}\n    </div>\n  );\n}\n\nexport default Greeting;"
+  },
+  {
+    "title": "List Rendering",
+    "code": "function NumberList({ numbers }) {\n  return (\n    <ul>\n      {numbers.map((number) => (\n        <li key={number.toString()}>{number}</li>\n      ))}\n    </ul>\n  );\n}\n\nexport default NumberList;"
+  },
+  {
+    "title": "Using Props",
+    "code": "function Welcome({ name }) {\n  return <h1>Hello, {name}</h1>;\n}\n\nexport default Welcome;"
+  },
+  {
+    "title": "Default Props",
+    "code": "function Button({ color, text }) {\n  return <button style={{ backgroundColor: color }}>{text}</button>;\n}\n\nButton.defaultProps = {\n  color: 'blue',\n  text: 'Click Me'\n};\n\nexport default Button;"
+  },
+  {
+    "title": "Using useEffect Hook",
+    "code": "import React, { useEffect, useState } from 'react';\n\nfunction FetchData() {\n  const [data, setData] = useState([]);\n\n  useEffect(() => {\n    fetch('https://api.example.com/data')\n      .then(response => response.json())\n      .then(setData);\n  }, []);\n\n  return (\n    <ul>\n      {data.map((item, index) => (\n        <li key={index}>{item.name}</li>\n      ))}\n    </ul>\n  );\n}\n\nexport default FetchData;"
+  },
+  {
+    "title": "Using Context API",
+    "code": "import React, { useContext, createContext } from 'react';\n\nconst ThemeContext = createContext('light');\n\nfunction ThemedButton() {\n  const theme = useContext(ThemeContext);\n  return <button style={{ backgroundColor: theme === 'dark' ? '#333' : '#FFF' }}>Click Me</button>;\n}\n\nfunction App() {\n  return (\n    <ThemeContext.Provider value='dark'>\n      <ThemedButton />\n    </ThemeContext.Provider>\n  );\n}\n\nexport default App;"
+  },
+  {
+    "title": "Basic React Router",
+    "code": "import React from 'react';\nimport { BrowserRouter as Router, Route, Link } from 'react-router-dom';\n\nfunction Home() {\n  return <h2>Home</h2>;\n}\n\nfunction About() {\n  return <h2>About</h2>;\n}\n\nfunction App() {\n  return (\n    <Router>\n      <nav>\n        <Link to='/'>Home</Link> | <Link to='/about'>About</Link>\n      </nav>\n      <Route exact path='/' component={Home} />\n      <Route path='/about' component={About} />\n    </Router>\n  );\n}\n\nexport default App;"
+  },
+  {
+    "title": "Using Fragments",
+    "code": "function FragmentExample() {\n  return (\n    <>\n      <h1>Title</h1>\n      <p>This is a description.</p>\n    </>\n  );\n}\n\nexport default FragmentExample;"
+  },
+  {
+    "title": "Higher-Order Component (HOC)",
+    "code": "function withLogger(WrappedComponent) {\n  return function LoggerComponent(props) {\n    console.log('Rendering:', WrappedComponent.name);\n    return <WrappedComponent {...props} />;\n  };\n}\n\nfunction Hello() {\n  return <h1>Hello, World!</h1>;\n}\n\nexport default withLogger(Hello);"
+  },
+  {
+    "title": "UseMemo Hook",
+    "code": "import React, { useMemo } from 'react';\n\nfunction ExpensiveCalculation({ num }) {\n  const result = useMemo(() => {\n    console.log('Calculating...');\n    return num * 2;\n  }, [num]);\n\n  return <div>Result: {result}</div>;\n}\n\nexport default ExpensiveCalculation;"
+  },
+  {
+    "title": "UseCallback Hook",
+    "code": "import React, { useState, useCallback } from 'react';\n\nfunction Button({ handleClick }) {\n  return <button onClick={handleClick}>Click Me</button>;\n}\n\nfunction App() {\n  const [count, setCount] = useState(0);\n  const memoizedHandleClick = useCallback(() => setCount(count + 1), [count]);\n\n  return (\n    <div>\n      <Button handleClick={memoizedHandleClick} />\n      <p>Count: {count}</p>\n    </div>\n  );\n}\n\nexport default App;"
+  },
+  {
+    "title": "UseReducer Hook",
+    "code": "import React, { useReducer } from 'react';\n\nfunction reducer(state, action) {\n  switch (action.type) {\n    case 'increment':\n      return { count: state.count + 1 };\n    case 'decrement':\n      return { count: state.count - 1 };\n    default:\n      return state;\n  }\n}\n\nfunction Counter() {\n  const [state, dispatch] = useReducer(reducer, { count: 0 });\n\n  return (\n    <div>\n      <p>Count: {state.count}</p>\n      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>\n      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>\n    </div>\n  );\n}\n\nexport default Counter;"
+  },
+  {
+    "title": "Forward Refs",
+    "code": "import React, { forwardRef } from 'react';\n\nconst FancyInput = forwardRef((props, ref) => (\n  <input ref={ref} type='text' />\n));\n\nfunction App() {\n  const inputRef = React.createRef();\n\n  function focusInput() {\n    inputRef.current.focus();\n  }\n\n  return (\n    <div>\n      <FancyInput ref={inputRef} />\n      <button onClick={focusInput}>Focus Input</button>\n    </div>\n  );\n}\n\nexport default App;"
+  },
+  
+  {
+    "title": "Component Lifecycle - ComponentDidMount",
+    "code": "import React, { useEffect } from 'react';\n\nfunction LifecycleComponent() {\n  useEffect(() => {\n    console.log('Component did mount');\n  }, []);\n\n  return <h1>Component Mounted</h1>;\n}\n\nexport default LifecycleComponent;"
+  },
+  {
+    "title": "UseRef Hook for DOM Manipulation",
+    "code": "import React, { useRef } from 'react';\n\nfunction RefExample() {\n  const inputRef = useRef(null);\n\n  function handleClick() {\n    inputRef.current.focus();\n  }\n\n  return (\n    <div>\n      <input ref={inputRef} type='text' placeholder='Focus me' />\n      <button onClick={handleClick}>Focus Input</button>\n    </div>\n  );\n}\n\nexport default RefExample;"
+  },
+  {
+    "title": "UseRef to Store Mutable Values",
+    "code": "import React, { useState, useRef } from 'react';\n\nfunction MutableRefExample() {\n  const countRef = useRef(0);\n  const [renderCount, setRenderCount] = useState(0);\n\n  function handleClick() {\n    countRef.current += 1;\n    setRenderCount(renderCount + 1);\n  }\n\n  return (\n    <div>\n      <p>Count: {countRef.current}</p>\n      <button onClick={handleClick}>Increment Ref Count</button>\n    </div>\n  );\n}\n\nexport default MutableRefExample;"
+  },
+  {
+    "title": "Controlled Component",
+    "code": "import React, { useState } from 'react';\n\nfunction ControlledInput() {\n  const [value, setValue] = useState('');\n\n  function handleChange(event) {\n    setValue(event.target.value);\n  }\n\n  return (\n    <div>\n      <input type='text' value={value} onChange={handleChange} />\n      <p>Input Value: {value}</p>\n    </div>\n  );\n}\n\nexport default ControlledInput;"
+  },
+  {
+    "title": "Uncontrolled Component",
+    "code": "import React, { useRef } from 'react';\n\nfunction UncontrolledInput() {\n  const inputRef = useRef(null);\n\n  function handleSubmit() {\n    alert(`Input Value: ${inputRef.current.value}`);\n  }\n\n  return (\n    <div>\n      <input type='text' ref={inputRef} />\n      <button onClick={handleSubmit}>Show Value</button>\n    </div>\n  );\n}\n\nexport default UncontrolledInput;"
+  },
+  {
+    "title": "Error Boundary Component",
+    "code": "import React, { Component } from 'react';\n\nclass ErrorBoundary extends Component {\n  constructor(props) {\n    super(props);\n    this.state = { hasError: false };\n  }\n\n  static getDerivedStateFromError(error) {\n    return { hasError: true };\n  }\n\n  componentDidCatch(error, info) {\n    console.log('Error:', error, 'Info:', info);\n  }\n\n  render() {\n    if (this.state.hasError) {\n      return <h1>Something went wrong.</h1>;\n    }\n    return this.props.children;\n  }\n}\n\nexport default ErrorBoundary;"
+  },
+  {
+    "title": "React Portal",
+    "code": "import React from 'react';\nimport ReactDOM from 'react-dom';\n\nfunction Modal({ children }) {\n  return ReactDOM.createPortal(\n    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'white', padding: '20px', border: '1px solid black' }}>\n      {children}\n    </div>,\n    document.getElementById('modal-root')\n  );\n}\n\nexport default Modal;"
+  },
+  {
+    "title": "Lazy Loading Components",
+    "code": "import React, { Suspense, lazy } from 'react';\n\nconst LazyComponent = lazy(() => import('./LazyComponent'));\n\nfunction App() {\n  return (\n    <Suspense fallback={<div>Loading...</div>}>\n      <LazyComponent />\n    </Suspense>\n  );\n}\n\nexport default App;"
+  },
+  {
+    "title": "Using PropTypes for Type Checking",
+    "code": "import React from 'react';\nimport PropTypes from 'prop-types';\n\nfunction Greeting({ name, age }) {\n  return <h1>Hello, {name}. You are {age} years old.</h1>;\n}\n\nGreeting.propTypes = {\n  name: PropTypes.string.isRequired,\n  age: PropTypes.number.isRequired\n};\n\nexport default Greeting;"
+  },
+  {
+    "title": "Custom Hook Example",
+    "code": "import { useState, useEffect } from 'react';\n\nfunction useWindowWidth() {\n  const [width, setWidth] = useState(window.innerWidth);\n\n  useEffect(() => {\n    function handleResize() {\n      setWidth(window.innerWidth);\n    }\n    window.addEventListener('resize', handleResize);\n    return () => window.removeEventListener('resize', handleResize);\n  }, []);\n\n  return width;\n}\n\nexport default useWindowWidth;"
+  },
+  {
+    "title": "Context API with Multiple Providers",
+    "code": "import React, { createContext, useContext } from 'react';\n\nconst ThemeContext = createContext('light');\nconst UserContext = createContext({ name: 'Guest' });\n\nfunction Profile() {\n  const theme = useContext(ThemeContext);\n  const user = useContext(UserContext);\n\n  return (\n    <div style={{ color: theme === 'dark' ? '#FFF' : '#000' }}>\n      <p>Username: {user.name}</p>\n      <p>Current Theme: {theme}</p>\n    </div>\n  );\n}\n\nfunction App() {\n  return (\n    <ThemeContext.Provider value='dark'>\n      <UserContext.Provider value={{ name: 'John Doe' }}>\n        <Profile />\n      </UserContext.Provider>\n    </ThemeContext.Provider>\n  );\n}\n\nexport default App;"
+  },
+  {
+    "title": "Render Props",
+    "code": "import React from 'react';\n\nclass MouseTracker extends React.Component {\n  state = { x: 0, y: 0 };\n\n  handleMouseMove = (event) => {\n    this.setState({ x: event.clientX, y: event.clientY });\n  };\n\n  render() {\n    return (\n      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>\n        {this.props.render(this.state)}\n      </div>\n    );\n  }\n}\n\nfunction App() {\n  return (\n    <MouseTracker render={({ x, y }) => <h1>Mouse Position: ({x}, {y})</h1>} />\n  );\n}\n\nexport default App;"
+  },
+  {
+    "title": "React.memo for Performance Optimization",
+    "code": "import React, { useState } from 'react';\n\nconst ChildComponent = React.memo(({ count }) => {\n  console.log('Child component rendered');\n  return <p>Count: {count}</p>;\n});\n\nfunction ParentComponent() {\n  const [count, setCount] = useState(0);\n  const [text, setText] = useState('');\n\n  return (\n    <div>\n      <button onClick={() => setCount(count + 1)}>Increment Count</button>\n      <ChildComponent count={count} />\n      <input value={text} onChange={(e) => setText(e.target.value)} />\n    </div>\n  );\n}\n\nexport default ParentComponent;"
+  },
+  
+  {
+    "title": "React Transitions using CSSTransition",
+    "code": "import React, { useState } from 'react';\nimport { CSSTransition } from 'react-transition-group';\nimport './styles.css';\n\nfunction FadeComponent() {\n  const [visible, setVisible] = useState(false);\n\n  return (\n    <div>\n      <button onClick={() => setVisible(!visible)}>Toggle</button>\n      <CSSTransition in={visible} timeout={300} classNames='fade' unmountOnExit>\n        <div className='fade'>This is a fading component</div>\n      </CSSTransition>\n    </div>\n  );\n}\n\nexport default FadeComponent;"
+  },
+  {
+    "title": "React Fragments",
+    "code": "import React from 'react';\n\nfunction FragmentExample() {\n  return (\n    <>\n      <h1>Heading</h1>\n      <p>Paragraph</p>\n    </>\n  );\n}\n\nexport default FragmentExample;"
+  },
+  {
+    "title": "HOC (Higher Order Component)",
+    "code": "import React from 'react';\n\nfunction withLoading(Component) {\n  return function WithLoadingComponent({ isLoading, ...props }) {\n    if (isLoading) return <p>Loading...</p>;\n    return <Component {...props} />;\n  };\n}\n\nexport default withLoading;"
+  },
+  {
+    "title": "Compound Component Pattern",
+    "code": "import React from 'react';\n\nfunction Tabs({ children }) {\n  const [activeIndex, setActiveIndex] = React.useState(0);\n\n  return (\n    <div>\n      <div>\n        {children.map((child, index) => (\n          <button key={index} onClick={() => setActiveIndex(index)}>{child.props.label}</button>\n        ))}\n      </div>\n      <div>{children[activeIndex]}</div>\n    </div>\n  );\n}\n\nfunction Tab({ children }) {\n  return <div>{children}</div>;\n}\n\nTabs.Tab = Tab;\n\nexport { Tabs };"
+  },
+  {
+    "title": "Portal for Modals",
+    "code": "import React, { useState } from 'react';\nimport ReactDOM from 'react-dom';\n\nfunction Modal({ children, isOpen, toggleModal }) {\n  if (!isOpen) return null;\n\n  return ReactDOM.createPortal(\n    <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'white', padding: '20px' }}>\n      <button onClick={toggleModal}>Close</button>\n      {children}\n    </div>,\n    document.getElementById('modal-root')\n  );\n}\n\nfunction App() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <div>\n      <button onClick={() => setIsOpen(true)}>Open Modal</button>\n      <Modal isOpen={isOpen} toggleModal={() => setIsOpen(false)}>\n        <p>This is a modal</p>\n      </Modal>\n    </div>\n  );\n}\n\nexport default App;"
+  },
+  {
+    "title": "Forwarding Refs to Child Components",
+    "code": "import React, { useRef, forwardRef } from 'react';\n\nconst FancyButton = forwardRef((props, ref) => (\n  <button ref={ref} className='fancy-button'>\n    {props.children}\n  </button>\n));\n\nfunction App() {\n  const buttonRef = useRef(null);\n\n  function handleClick() {\n    buttonRef.current.focus();\n  }\n\n  return (\n    <div>\n      <FancyButton ref={buttonRef}>Click me</FancyButton>\n      <button onClick={handleClick}>Focus Fancy Button</button>\n    </div>\n  );\n}\n\nexport default App;"
+  },
+  {
+    "title": "React Router - Basic Setup",
+    "code": "import React from 'react';\nimport { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';\n\nfunction Home() {\n  return <h2>Home Page</h2>;\n}\n\nfunction About() {\n  return <h2>About Page</h2>;\n}\n\nfunction App() {\n  return (\n    <Router>\n      <nav>\n        <Link to='/'>Home</Link>\n        <Link to='/about'>About</Link>\n      </nav>\n      <Switch>\n        <Route path='/' exact component={Home} />\n        <Route path='/about' component={About} />\n      </Switch>\n    </Router>\n  );\n}\n\nexport default App;"
+  },
+  {
+    "title": "Redirect with React Router",
+    "code": "import React from 'react';\nimport { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';\n\nfunction Home() {\n  return <h2>Home Page</h2>;\n}\n\nfunction OldPage() {\n  return <Redirect to='/new-page' />;\n}\n\nfunction NewPage() {\n  return <h2>New Page</h2>;\n}\n\nfunction App() {\n  return (\n    <Router>\n      <Switch>\n        <Route path='/' exact component={Home} />\n        <Route path='/old-page' component={OldPage} />\n        <Route path='/new-page' component={NewPage} />\n      </Switch>\n    </Router>\n  );\n}\n\nexport default App;"
+  },
+  {
+    "title": "Authentication with React Router",
+    "code": "import React from 'react';\nimport { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';\n\nfunction Home() {\n  return <h2>Home Page</h2>;\n}\n\nfunction Login() {\n  return <h2>Login Page</h2>;\n}\n\nfunction PrivateRoute({ component: Component, isAuthenticated, ...rest }) {\n  return (\n    <Route\n      {...rest}\n      render={(props) =>\n        isAuthenticated ? <Component {...props} /> : <Redirect to='/login' />\n      }\n    />\n  );\n}\n\nfunction App() {\n  const isAuthenticated = false;\n\n  return (\n    <Router>\n      <Switch>\n        <Route path='/' exact component={Home} />\n        <Route path='/login' component={Login} />\n        <PrivateRoute path='/dashboard' component={() => <h2>Dashboard</h2>} isAuthenticated={isAuthenticated} />\n      </Switch>\n    </Router>\n  );\n}\n\nexport default App;"
+  },
+  {
+    "title": "404 Page Not Found with React Router",
+    "code": "import React from 'react';\nimport { BrowserRouter as Router, Route, Switch } from 'react-router-dom';\n\nfunction Home() {\n  return <h2>Home Page</h2>;\n}\n\nfunction NotFound() {\n  return <h2>404 - Page Not Found</h2>;\n}\n\nfunction App() {\n  return (\n    <Router>\n      <Switch>\n        <Route path='/' exact component={Home} />\n        <Route component={NotFound} />\n      </Switch>\n    </Router>\n  );\n}\n\nexport default App;"
+  }
+
+
+  
+]
