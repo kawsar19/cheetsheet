@@ -47,6 +47,12 @@
       "title": "JAVASCRIPT Date Cheetsheet  ",
       "description": "Js date .",
       "link": "/js-date-cheetsheet.html"
+    },
+    {
+      "id": 9,
+      "title": "React  ",
+      "description": "React Js cheetsheet .",
+      "link": "/react.html"
     }
     
 ]
