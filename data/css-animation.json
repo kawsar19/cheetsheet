@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Basic Animation",
+    "code": ".animate {\n  animation: example 2s infinite;\n  /* Animation properties: name, duration, and repeat count */\n}"
+  },
+  {
+    "title": "Defining Keyframes",
+    "code": "@keyframes example {\n  from { opacity: 0; }\n  to { opacity: 1; }\n  /* Animates from 0% to 100% (start to end) */\n}"
+  },
+  {
+    "title": "Setting Animation Duration",
+    "code": ".animate {\n  animation-duration: 3s;\n  /* Duration in seconds or milliseconds */\n}"
+  },
+  {
+    "title": "Adjusting Animation Timing Function",
+    "code": ".animate {\n  animation-timing-function: ease-in-out;\n  /* Options: linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier */\n}"
+  },
+  {
+    "title": "Setting Animation Delay",
+    "code": ".animate {\n  animation-delay: 1s;\n  /* Delay before the animation starts */\n}"
+  },
+  {
+    "title": "Setting Animation Iteration Count",
+    "code": ".animate {\n  animation-iteration-count: infinite;\n  /* Options: a number or 'infinite' for continuous repetition */\n}"
+  },
+  {
+    "title": "Setting Animation Direction",
+    "code": ".animate {\n  animation-direction: alternate;\n  /* Options: normal | reverse | alternate | alternate-reverse */\n}"
+  },
+  {
+    "title": "Setting Animation Fill Mode",
+    "code": ".animate {\n  animation-fill-mode: forwards;\n  /* Options: none | forwards | backwards | both */\n}"
+  },
+  {
+    "title": "Using Multiple Animations",
+    "code": ".animate {\n  animation: fade 2s ease-in, slide 1s ease-out;\n  /* Multiple animations separated by commas */\n}"
+  },
+  {
+    "title": "Pausing and Playing Animation",
+    "code": ".animate {\n  animation-play-state: paused;\n  /* Options: running | paused */\n}"
+  },
+  {
+    "title": "Animation Shorthand",
+    "code": ".animate {\n  animation: example 4s 2s infinite alternate both;\n  /* shorthand: name, duration, delay, iteration-count, direction, fill-mode */\n}"
+  },
+  {
+    "title": "Transition Property (Basic)",
+    "code": ".box {\n  transition: all 0.5s ease;\n  /* Animates all properties over 0.5 seconds with easing */\n}"
+  },
+  {
+    "title": "Transition Property (Specific)",
+    "code": ".box {\n  transition: background-color 0.5s ease, transform 0.3s ease-out;\n  /* Animates background-color and transform separately */\n}"
+  },
+  {
+    "title": "Keyframe with Transform",
+    "code": "@keyframes move {\n  0% { transform: translateX(0); }\n  100% { transform: translateX(100px); }\n  /* Moves element horizontally from 0 to 100px */\n}"
+  },
+  {
+    "title": "Keyframe with Color Change",
+    "code": "@keyframes colorChange {\n  0% { background-color: red; }\n  100% { background-color: blue; }\n  /* Changes background color from red to blue */\n}"
+  },
+  {
+    "title": "Creating a Bounce Animation",
+    "code": "@keyframes bounce {\n  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }\n  40% { transform: translateY(-30px); }\n  60% { transform: translateY(-15px); }\n}"
+  },
+  {
+    "title": "Creating a Spin Animation",
+    "code": "@keyframes spin {\n  0% { transform: rotate(0deg); }\n  100% { transform: rotate(360deg); }\n  /* Rotates element 360 degrees */\n}"
+  },
+  {
+    "title": "Animating Text Color",
+    "code": "@keyframes textColor {\n  0% { color: red; }\n  50% { color: yellow; }\n  100% { color: green; }\n  /* Changes text color through keyframes */\n}"
+  },
+  {
+    "title": "Animating Element Scale",
+    "code": "@keyframes scale {\n  0% { transform: scale(1); }\n  50% { transform: scale(1.5); }\n  100% { transform: scale(1); }\n  /* Enlarges and then returns to original size */\n}"
+  },
+  {
+    "title": "Animating Opacity",
+    "code": "@keyframes fade {\n  0% { opacity: 1; }\n  50% { opacity: 0.5; }\n  100% { opacity: 1; }\n  /* Adjusts opacity through keyframes */\n}"
+  },
+  {
+    "title": "Creating a Slide Animation",
+    "code": "@keyframes slide {\n  0% { transform: translateX(-100%); }\n  100% { transform: translateX(0); }\n  /* Slides element in from the left */\n}"
+  },
+  {
+    "title": "Creating a Pulse Animation",
+    "code": "@keyframes pulse {\n  0% { transform: scale(1); }\n  50% { transform: scale(1.1); }\n  100% { transform: scale(1); }\n  /* Increases and decreases size like a pulse */\n}"
+  },
+  {
+    "title": "Creating a Wobble Animation",
+    "code": "@keyframes wobble {\n  0% { transform: translateX(0); }\n  15% { transform: translateX(-25px) rotate(-5deg); }\n  30% { transform: translateX(20px) rotate(3deg); }\n 45% { transform: translateX(-15px) rotate(-3deg); }\n 60% { transform: translateX(10px) rotate(2deg); }\n 75% { transform: translateX(-5px) rotate(-1deg); }\n 100% { transform: translateX(0); }\n}"
+  },
+  {
+    "title": "Creating a Shake Animation",
+    "code": "@keyframes shake {\n  0%, 100% { transform: translateX(0); }\n  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }\n  20%, 40%, 60%, 80% { transform: translateX(10px); }\n  /* Shakes element horizontally */\n}"
+  }
+]
