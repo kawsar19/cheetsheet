@@ -1,0 +1,90 @@
+[
+  {
+    "title": "Creating a Flex Container",
+    "code": ".container {\n  display: flex;\n}"
+  },
+  {
+    "title": "Horizontal Alignment (justify-content)",
+    "code": ".container {\n  display: flex;\n  justify-content: center;\n  /* Options: flex-start | flex-end | center | space-between | space-around | space-evenly */\n}"
+  },
+  {
+    "title": "Vertical Alignment (align-items)",
+    "code": ".container {\n  display: flex;\n  align-items: center;\n  /* Options: flex-start | flex-end | center | stretch | baseline */\n}"
+  },
+  {
+    "title": "Aligning Content When Wrapped (align-content)",
+    "code": ".container {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: center;\n  /* Options: flex-start | flex-end | center | space-between | space-around | stretch */\n}"
+  },
+  {
+    "title": "Defining the Axis (flex-direction)",
+    "code": ".container {\n  display: flex;\n  flex-direction: row;\n  /* Options: row | row-reverse | column | column-reverse */\n}"
+  },
+  {
+    "title": "Flex Container Wrapping (flex-wrap)",
+    "code": ".container {\n  display: flex;\n  flex-wrap: wrap;\n  /* Options: nowrap | wrap | wrap-reverse */\n}"
+  },
+  {
+    "title": "Adjusting Space Distribution (gap)",
+    "code": ".container {\n  display: flex;\n  gap: 10px;\n}"
+  },
+  {
+    "title": "Ordering Items (order)",
+    "code": ".item {\n  order: 1;\n  /* Lower values appear first, default is 0 */\n}"
+  },
+  {
+    "title": "Changing Flexibility (flex-grow)",
+    "code": ".item {\n  flex-grow: 1;\n  /* Options: 0 (default) or any positive number */\n}"
+  },
+  {
+    "title": "Shrinking Items (flex-shrink)",
+    "code": ".item {\n  flex-shrink: 1;\n  /* Options: 0 (default) or any positive number */\n}"
+  },
+  {
+    "title": "Defining Base Size (flex-basis)",
+    "code": ".item {\n  flex-basis: 100px;\n  /* Can be a percentage or a fixed value */\n}"
+  },
+  {
+    "title": "Complete Flex Property (flex)",
+    "code": ".item {\n  flex: 1 0 100px;\n  /* flex-grow | flex-shrink | flex-basis */\n}"
+  },
+  {
+    "title": "Align Individual Items (align-self)",
+    "code": ".item {\n  align-self: center;\n  /* Options: auto | flex-start | flex-end | center | baseline | stretch */\n}"
+  },
+  {
+    "title": "Flex Container Orientation (row vs. column)",
+    "code": ".container {\n  display: flex;\n  flex-direction: row;\n  /* Options: row | row-reverse | column | column-reverse */\n}"
+  },
+  {
+    "title": "Distributing Space (justify-content)",
+    "code": ".container {\n  display: flex;\n  justify-content: space-between;\n  /* Options: flex-start | flex-end | center | space-between | space-around | space-evenly */\n}"
+  },
+  {
+    "title": "Reversing the Wrap (wrap-reverse)",
+    "code": ".container {\n  display: flex;\n  flex-wrap: wrap-reverse;\n}"
+  },
+  {
+    "title": "Flex Shorthand",
+    "code": ".item {\n  flex: 1 1 auto;\n  /* flex-grow | flex-shrink | flex-basis */\n}"
+  },
+  {
+    "title": "Align Content Along Cross-Axis",
+    "code": ".container {\n  display: flex;\n  align-content: space-around;\n  /* Options: flex-start | flex-end | center | space-between | space-around | stretch */\n}"
+  },
+  {
+    "title": "Individual Item Flex Property",
+    "code": ".item {\n  flex: 0 1 300px;\n  /* Adjust to control item size and flexibility */\n}"
+  },
+  {
+    "title": "Creating Equal Space Between Items",
+    "code": ".container {\n  display: flex;\n  justify-content: space-between;\n  align-items: stretch;\n}"
+  },
+  {
+    "title": "Managing Overflows (overflow)",
+    "code": ".container {\n  display: flex;\n  overflow: hidden;\n  /* Options: visible | hidden | scroll | auto */\n}"
+  },
+  {
+    "title": "Creating Responsive Flex Layout",
+    "code": ".container {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.item {\n  flex: 1 1 200px;\n  margin: 10px;\n}"
+  }
+]
